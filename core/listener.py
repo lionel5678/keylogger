@@ -10,7 +10,7 @@ import os
 
 # ── CONFIGURATION ────────────────────────────────────────────
 
-LOG_FILE = "keylog.txt" #data teste 
+#LOG_FILE = "keylog.txt" #data teste 
 BUFFER_SIZE = 20 #attendre pour pas reouvrire a chaque foi sinon bug
 
 # ── VARIABLES GLOBALES ───────────────────────────────────────
