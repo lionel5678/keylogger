@@ -61,3 +61,12 @@ def find_by_id(id):#chercher par id
 create_table()
 insert_data("2023-10-10 12:00:00", "a", "Window1", "Session1")
 
+
+# netoyage
+
+def clear_old(days=7):
+    with sqlite3.connect(con) as conn:
+        conn.execute(
+            (f"-{days} days",)
+        )
+        conn.commit()
